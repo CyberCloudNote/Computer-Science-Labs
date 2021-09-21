@@ -1,0 +1,63 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+int main() 
+{
+  int menu;
+  int count = 0;
+  int countCoffee = 0;
+  int countTea = 0;
+  int countCoke = 0;
+  int countOrange = 0;
+
+  do
+  {
+    cout << "Please input your chocie iof drink (a number from 1 to 4)" << endl;
+    cout << "1 - Coffee" << endl;
+    cout << "2 - Tea" << endl;
+    cout << "3 - Coke" << endl;
+    cout << "4 - Orange Juice" << endl << endl;
+    cout << " -1 - Quite" << endl;
+    cin >> menu;
+
+    if(menu == -1)
+    {
+      count++;
+    }
+    else if(menu == 1)
+    {
+      countCoffee++;
+      count++;
+    }
+    else if(menu == 2)
+    {
+      countTea++;
+      count++;
+    }
+    else if(menu == 3)
+    {
+      countCoke++;
+      count++;
+    }
+    else if(menu == 4)
+    {
+      countOrange++;
+      count++;
+    }
+    else
+    {
+      cout << "Illegal Input" << endl;
+      cout << "Please input a number between 1 to 4 or -1 to quit." << endl;
+    }
+    cout << endl;
+  }while(menu != -1);
+  cout << "The total number of peopel surveyed is " << count << endl;
+  cout << "The results are as follows:" << endl << endl;
+
+  cout << "Beverages" << setw(20) << "Number of Votes" << endl;
+  cout << "Coffee" << setw(13) << countCoffee << endl;
+  cout << "Tea" << setw(16) << countTea << endl;
+  cout << "Coke" << setw(15) << countCoke << endl;
+  cout << "Orange Juice" << setw(7) << countOrange << endl;
+}
