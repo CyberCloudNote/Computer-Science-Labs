@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+void swap(float number1, float number2);
+
+int main() {
+  
+  float first, second;
+  cout << "What is you first Number?" << endl;
+  cin >> first;
+
+  cout << "What is you Second Number?" << endl;
+  cin >> second;
+  cout << "Your first number is " << first << " Your second number is " << second << "."<< endl;
+
+  swap(first,second);
+
+  cout << "Your first number after the swap is " << first << " Your second number after the swap is " << second << "."<< endl;
+  return 0;
+}
+void swap(float number1, float number2)
+{
+  int temp = number1;
+  number1 = number2;
+  number2 = temp;
+}
