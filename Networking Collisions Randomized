@@ -1,0 +1,113 @@
+#include <iostream>
+#include <stdlib.h>
+#include <iomanip>
+
+using namespace std;
+void prob25(int host, int packet);
+void prob50(int host, int packet);
+void prob75(int host, int packet);
+
+int main() 
+{
+  //hosts
+  int Host2 = 2;
+  int Host3 = 3;
+  int Host4 = 4;
+  int Host5 = 5;
+  //packets
+  int Pack2 = 500;
+  int Pack3 = 333;
+  int Pack4 = 250;
+  int Pack5 = 200;
+
+  prob25(Host2,Pack2);
+  prob25(Host3,Pack3);
+  prob25(Host4,Pack4);
+  prob25(Host5,Pack5);
+
+  cout << endl;
+
+  prob50(Host2,Pack2);
+  prob50(Host3,Pack3);
+  prob50(Host4,Pack4);
+  prob50(Host5,Pack5);
+
+  cout << endl;
+
+  prob75(Host2,Pack2);
+  prob75(Host3,Pack3);
+  prob75(Host4,Pack4);
+  prob75(Host5,Pack5);
+}
+
+void prob25(int host, int packet)
+{
+  float percent25;
+  float collisionCount = 0;
+  float avgCollision;
+  float totalDelay;
+  float avgUtil;
+  
+  srand(time(NULL));
+  for (int i = 0; i < host; i++)
+  {
+    while(percent25 != 1)
+    {
+      percent25 = rand()%4+1;
+      collisionCount++;
+    }
+    percent25 = 0;
+  }
+  totalDelay = collisionCount;
+  avgCollision = (collisionCount - host)/totalDelay;
+  avgUtil = host/collisionCount;
+  cout << setprecision(2) << "Probability 25%   " << "Total Delay: " << totalDelay << " Average Collision: " << avgCollision << " Average Utilization: " << avgUtil * 100 << "%" << endl;
+}
+
+void prob50(int host, int packet)
+{
+  float percent50;
+  float collisionCount = 0;
+  float avgCollision;
+  float totalDelay;
+  float avgUtil;
+  
+  srand(time(NULL));
+  for (int i = 0; i < host; i++)
+  {
+    while(percent50 != 1)
+    {
+      percent50 = rand()%2+1;
+      collisionCount++;
+    }
+    percent50 = 0;
+  }
+  totalDelay = collisionCount;
+  avgCollision = (collisionCount - host)/totalDelay;
+  avgUtil = host/collisionCount;
+  cout << setprecision(3) << "Probability 50%   " << "Total Delay: " << totalDelay << " Average Collision: " << avgCollision << " Average Utilization: " << avgUtil * 100 << "%" << endl;
+}
+
+void prob75(int host, int packet)
+{
+  float percent75;
+  float collisionCount = 0;
+  float avgCollision;
+  float totalDelay;
+  float avgUtil;
+  
+  srand(time(NULL));
+  for (int i = 0; i < host; i++)
+  {
+    while(percent75 != 1 && percent75 != 2 && percent75 != 3)
+    {
+      percent75 = rand()%4+1;
+      collisionCount++;
+    }
+    percent75 = 0;
+  }
+  totalDelay = collisionCount;
+  avgCollision = (collisionCount - host)/totalDelay;
+  avgUtil = host/collisionCount;
+  cout << setprecision(3) << "Probability 75%   " << "Total Delay: " << totalDelay << " Average Collision: " << avgCollision << " Average Utilization: " << avgUtil * 100 << "%" << endl;
+}
