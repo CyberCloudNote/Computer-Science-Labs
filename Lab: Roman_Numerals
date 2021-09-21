@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int choice;
+
+    cout << "Enter a number between 1 and 10: ";
+    cin >> choice;
+
+    switch (choice)
+    {
+      case 1:
+        cout << "The Roman numeral for ";
+        cout  << choice << " is I." << endl;
+        break;
+      case 2:
+        cout << "The Roman numeral for ";
+        cout << choice << " is II." << endl;
+        break;
+      case 3:
+        cout << "The Roman numeral for ";
+        cout << choice << " is III." << endl;
+        break;
+      case 4:
+        cout << "The Roman numeral for ";
+        cout << choice << " is IV." << endl;
+        break;
+      case 5:
+        cout << "The Roman numeral for ";
+        cout << choice << " is V." << endl;
+        break;
+      case 6:
+        cout << "The Roman numeral for ";
+        cout << choice << " is VI." << endl;
+        break;
+      case 7:
+        cout << "The Roman numeral for ";
+        cout << choice << " is VII." << endl;
+        break;
+      case 8:
+        cout << "The Roman numeral for ";
+        cout << choice << " is VIII." << endl;
+        break;
+      case 9:
+        cout << "The Roman numeral for ";
+        cout << choice << " is XI." << endl;
+        break;
+      case 10:
+        cout << "The Roman numeral for ";
+        cout << choice << " is X." << endl;
+        break;
+      default:
+        cout << "Invalid Input." << endl;
+        cout << "Enter a number between 1 and 10." << endl;
+        cout << "Run the program again." << endl;
+        break;
+    }
+    return 0;
+}
