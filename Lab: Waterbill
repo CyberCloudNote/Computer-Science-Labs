@@ -1,0 +1,40 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() 
+{
+  double q1,q2,q3,q4;
+  double average;
+  cout << fixed << showpoint << setprecision(2);
+
+  cout << "Please input your water bill for quarter 1: ";
+  cin >> q1;
+
+  cout << "Please input your water bill for quarter 2: ";
+  cin >> q2;
+
+  cout << "Please input your water bill for quarter 3: ";
+  cin >> q3;
+
+  cout << "Please input your water bill for quarter 4: ";
+  cin >> q4;
+  
+  average = (q1 + q2 + q3 + q4)/12;
+
+  if(average > 75)
+  {
+    cout << "Your average monthly bill is $" << average;
+    cout << " You are using excessive amounts of water."; 
+  }else if (average >= 25 && average <= 75)
+  {
+    cout << "Your average monthly bill is $" << average;
+    cout << " You are using the typical amount of water."; 
+  }
+  else if(average < 25)
+  {
+    cout << "Your average monthly bill is $" << average;
+    cout << " You are using very little water."; 
+  }
+}
