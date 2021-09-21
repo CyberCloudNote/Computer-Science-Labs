@@ -1,0 +1,99 @@
+#include<iostream>
+#include<iomanip>
+#include<vector>
+using namespace std;
+
+bool checkLegal( char charCheck, int rowCheck, int colCheck);
+vector<int> takenRow;
+vector<int> takenCol;
+
+int main()
+{
+ char table[3][3] = { { '*','*','*' } 
+                     ,{ '*','*','*' }
+                     ,{ '*','*','*' } };
+ char first;
+ int win = 0, lose = 0, tie = 0, second, third;
+ 
+ do
+ {
+    for (int top = 0;top < 3; top++)       
+    {
+      for (int middle = 0;middle < 3; middle++)
+      {
+        cout << table[top][middle];
+      }
+      cout << endl;
+    }
+        
+    for (int vd = 0; vd < 3; vd++)          
+    {
+      if (table[vd][0] == 'x' && table[vd][1] == 'x' && table[vd][2] == 'x')
+        win = 1;
+      if (table[0][vd] == 'x' && table[1][vd] == 'x' && table[2][vd] == 'x')
+        win = 1;
+    }
+    if (table[0][0] == 'x' && table[1][1] == 'x' && table[2][2] == 'x')
+      win = 1;
+    if (table[0][2] == 'x' && table[1][1] == 'x' && table[2][0] == 'x')
+      win = 1;
+        
+    if(table[0][0] == 'x' && table[0][1] == 'x' && table[0][2] == 'x')
+      win = 1;
+    if (table[1][0] == 'x' && table[1][1] == 'x' && table[1][2] == 'x')
+      win = 1;
+    for (int vd = 0; vd < 3; vd++) 
+    {
+      if (table[vd][0] == 'o' && table[vd][1] == 'o' && table[vd][2] == 'o')
+        lose = 1;
+      if (table[0][vd] == 'o' && table[1][vd] == 'o' && table[2][vd] == 'o')
+        lose = 1;
+    }
+    if (table[0][0] == 'o' && table[1][1] == 'o' && table[2][2] == 'o')
+        lose = 1;
+    if (table[0][2] == 'o' && table[1][1] == 'o' && table[2][0] == 'o')
+        lose = 1;   
+    if(table[0][0] == 'o' && table[0][1] == 'o' && table[0][2] == 'x')
+        lose = 1;
+    if (table[1][0] == 'o' && table[1][1] == 'o' && table[1][2] == 'x')
+        lose = 1;
+    if (win < 1 && lose < 1 && tie < 9)
+    {
+      cout << "Choose 'x' or 'o' , row 0-2, column 0-2: " ;
+      cin >> first >> second >> third;
+      if(checkLegal(first, second, third) == true)
+      {
+        table[second][third] = first;
+        tie++;
+      }
+      
+      takenRow.push_back(second);
+      takenCol.push_back(third);
+    }
+ }
+ while(win < 1 && lose < 1 && tie < 9);    
+    if ( win == 1)                       
+        cout << endl << "X Wins!"<< endl;    
+    if ( lose == 1)
+        cout << endl << "X Lost!"<< endl;
+    if ( tie == 9)
+        cout << endl << "You Tie!"<< endl;
+    
+    return 0;
+}
+
+bool checkLegal(char charCheck, int rowCheck, int colCheck)
+{
+  for(int i = 0; i < takenRow.size(); i++)
+  {
+    if(rowCheck == takenRow[i] && colCheck == takenCol[i])
+    {
+      cout << endl;
+      cout << "Illegal Move!" << endl;
+      cout << "Please choose a empty square." << endl;
+      cout << endl;
+      return false;
+    }
+  }
+  return true;
+}
