@@ -1,0 +1,49 @@
+#include <iostream>
+
+using namespace std;
+
+int linearSearch(int arr[], int size, int key) ;
+
+int main() 
+{
+  int numID, nums, targetKey;
+  int *arr;
+
+  cout << "Please input the number of id numbers to read" << endl;
+  cin >> numID;
+
+  arr = new int[numID];
+  for(int i = 0; i < numID; i ++)
+  {
+    cout << "Plesae enter an id number" << endl;
+    cin >> nums;
+    arr[i] = nums;
+  }
+
+  cout << endl;
+  cout << "Please input a id number to be searched" << endl;
+  cin >> targetKey;
+
+  int result = linearSearch(arr, numID, targetKey);
+
+  if(result == -1)
+  {
+    cout << targetKey << " is not in the array" << endl;
+  }
+  else
+  {
+    cout << targetKey << " is in the array" << endl;
+  }
+}
+
+int linearSearch(int arr[], int size, int key) 
+{  
+  for (int i = 0; i < size; i++) 
+  {
+    if (arr[i] == key) 
+    {
+      return i; 
+    }
+  }
+  return -1; 
+} 
