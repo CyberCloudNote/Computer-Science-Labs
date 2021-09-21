@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+int Pal(int arrList[], int listSize, int start);
+
+int main() {
+  int arr[3] = {4,5,6};
+  Pal(arr, 3, 0);
+}
+
+int Pal(int arrList[], int listSize, int start)
+{
+  if (listSize <= 1)
+  {
+    cout << "Palindrome" << endl;
+    return 1;
+  }
+   else if (arrList[start] != arrList[listSize - 1])
+  {
+    cout << "Not Palindrome" << endl;
+    return 0;
+  }
+   else
+   {
+     return Pal(arrList, --listSize, ++start);
+   }
+}
