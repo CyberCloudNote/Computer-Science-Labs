@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+  int findPrime;
+  int primeTrue;
+  cout << "Please enter a number" << endl;
+  cin >> findPrime;
+  for(int i = 2; i < findPrime + 1; i++)
+  {
+    primeTrue = 1;
+    if (i == 1 || i == 0) 
+    {
+      continue;
+    }
+
+    for (int j = 2; j <= i / 2; ++j)  
+    { 
+      if (i % j == 0)  
+      { 
+       primeTrue = 0; 
+       break;
+      } 
+    } 
+    if (primeTrue == 1) 
+    {
+      cout << i << " "; 
+    }
+  }
+}
