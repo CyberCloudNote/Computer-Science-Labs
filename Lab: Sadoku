@@ -1,0 +1,460 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+void checkRow(char sudokuArr[][9]);
+void checkCol(char sudokuArr[][9]);
+
+void check3x3A(char sudokuArr[][9]);
+void check3x3B(char sudokuArr[][9]);
+void check3x3C(char sudokuArr[][9]);
+
+void check3x3D(char sudokuArr[][9]);
+void check3x3E(char sudokuArr[][9]);
+void check3x3F(char sudokuArr[][9]);
+
+void check3x3G(char sudokuArr[][9]);
+void check3x3H(char sudokuArr[][9]);
+void check3x3I(char sudokuArr[][9]);
+
+int main() {
+  char board[9][9] = {{6, 2, 4, 5, 3, 9, 1, 8, 7},
+                     {5, 1, 9, 7, 2, 8, 6, 3, 4},
+                     {8, 3, 7, 6, 1, 4, 2, 9, 5},
+                     {1, 4, 3, 8, 6, 5, 7, 2, 9},
+                     {9, 5, 8, 2, 4, 7, 3, 6, 1},
+                     {7, 6, 2, 3, 9, 1, 4, 5, 8},
+                     {3, 7, 1, 9, 5, 6, 8, 4, 2},
+                     {4, 9, 6, 1, 8, 2, 5, 7, 3},
+                     {2, 8, 5, 4, 7, 3, 9, 1, 6}};
+
+  checkRow(board);
+  checkCol(board);
+
+  check3x3A(board);
+  check3x3B(board);
+  check3x3C(board);
+
+  check3x3D(board);
+  check3x3E(board);
+  check3x3F(board);
+
+  check3x3G(board);
+  check3x3H(board);
+  check3x3I(board);
+
+  return 0;
+}
+
+void checkRow(char sudokuArr[][9])
+{
+  vector<int> rowCheck;
+  vector<int>::iterator toFind;
+  int countInvalid = 0;
+
+  for(int i = 0; i < 9; i++)
+  {
+    for(int j = 0; j < 9; j++)
+    {
+      rowCheck.push_back((int) sudokuArr[j][i]);
+      if(j == 8)
+      {
+        for(int k = 0; k < 9; k++)
+        {
+          toFind = find (rowCheck.begin(), rowCheck.end(), k+1);
+          if(toFind != rowCheck.end())
+          {
+          }
+          else
+          {
+            countInvalid++;
+          }
+        }
+        rowCheck.clear();
+      }
+    }
+  }
+  if(countInvalid > 0)
+  {
+    cout << "Rows are Invalid" << endl;
+  }
+  else
+  {
+    cout << "Rows are Valid" << endl;
+  }
+}
+void checkCol(char sudokuArr[][9])
+{
+  vector<int> colCheck;
+  vector<int>::iterator toFind;
+  int countInvalid = 0;
+
+  for(int i = 0; i < 9; i++)
+  {
+    for(int j = 0; j < 9; j++)
+    {
+      colCheck.push_back((int) sudokuArr[i][j]);
+      if(j == 8)
+      {
+        for(int k = 0; k < 9; k++)
+        {
+          toFind = find (colCheck.begin(), colCheck.end(), k+1);
+          if(toFind != colCheck.end())
+          {
+          }
+          else
+          {
+            countInvalid++;
+          }
+        }
+        colCheck.clear();
+      }
+    }
+  }
+  if(countInvalid > 0)
+  {
+    cout << "Collums are Invalid" << endl;
+  }
+  else
+  {
+    cout << "Collums are Valid" << endl;
+  }
+}
+
+void check3x3A(char sudokuArr[][9])
+{
+  vector<int> boxCheck;
+  vector<int>::iterator toFind;
+  int countInvalid = 0;
+
+  for(int i = 0; i < 3; i++)
+  {
+    for(int j = 0; j < 3; j++)
+    {
+      boxCheck.push_back((int) sudokuArr[j][i]);
+      if(j == 8)
+      {
+        for(int k = 0; k < 9; k++)
+        {
+          toFind = find (boxCheck.begin(), boxCheck.end(), k+1);
+          if(toFind != boxCheck.end())
+          {
+          }
+          else
+          {
+            countInvalid++;
+          }
+        }
+        boxCheck.clear();
+      }
+    }
+  }
+  if(countInvalid > 0)
+  {
+    cout << "Box A is Invalid" << endl;
+  }
+  else
+  {
+    cout << "Box A is Valid" << endl;
+  }
+}
+void check3x3B(char sudokuArr[][9])
+{
+  vector<int> boxCheck;
+  vector<int>::iterator toFind;
+  int countInvalid = 0;
+
+  for(int i = 0; i < 3; i++)
+  {
+    for(int j = 3; j < 6; j++)
+    {
+      boxCheck.push_back((int) sudokuArr[j][i]);
+      if(j == 8)
+      {
+        for(int k = 0; k < 9; k++)
+        {
+          toFind = find (boxCheck.begin(), boxCheck.end(), k+1);
+          if(toFind != boxCheck.end())
+          {
+          }
+          else
+          {
+            countInvalid++;
+          }
+        }
+        boxCheck.clear();
+      }
+    }
+  }
+  if(countInvalid > 0)
+  {
+    cout << "Box B is Invalid" << endl;
+  }
+  else
+  {
+    cout << "Box B is Valid" << endl;
+  }
+}
+void check3x3C(char sudokuArr[][9])
+{
+  vector<int> boxCheck;
+  vector<int>::iterator toFind;
+  int countInvalid = 0;
+
+  for(int i = 0; i < 3; i++)
+  {
+    for(int j = 6; j < 9; j++)
+    {
+      boxCheck.push_back((int) sudokuArr[j][i]);
+      if(j == 8)
+      {
+        for(int k = 0; k < 9; k++)
+        {
+          toFind = find (boxCheck.begin(), boxCheck.end(), k+1);
+          if(toFind != boxCheck.end())
+          {
+          }
+          else
+          {
+            countInvalid++;
+          }
+        }
+        boxCheck.clear();
+      }
+    }
+  }
+  if(countInvalid > 0)
+  {
+    cout << "Box C is Invalid" << endl;
+  }
+  else
+  {
+    cout << "Box C is Valid" << endl;
+  }
+}
+
+void check3x3D(char sudokuArr[][9])
+{
+  vector<int> boxCheck;
+  vector<int>::iterator toFind;
+  int countInvalid = 0;
+
+  for(int i = 3; i < 6; i++)
+  {
+    for(int j = 0; j < 3; j++)
+    {
+      boxCheck.push_back((int) sudokuArr[j][i]);
+      if(j == 8)
+      {
+        for(int k = 0; k < 9; k++)
+        {
+          toFind = find (boxCheck.begin(), boxCheck.end(), k+1);
+          if(toFind != boxCheck.end())
+          {
+          }
+          else
+          {
+            countInvalid++;
+          }
+        }
+        boxCheck.clear();
+      }
+    }
+  }
+  if(countInvalid > 0)
+  {
+    cout << "Box D is Invalid" << endl;
+  }
+  else
+  {
+    cout << "Box D is Valid" << endl;
+  }
+}
+void check3x3E(char sudokuArr[][9])
+{
+  vector<int> boxCheck;
+  vector<int>::iterator toFind;
+  int countInvalid = 0;
+
+  for(int i = 3; i < 6; i++)
+  {
+    for(int j = 3; j < 6; j++)
+    {
+      boxCheck.push_back((int) sudokuArr[j][i]);
+      if(j == 8)
+      {
+        for(int k = 0; k < 9; k++)
+        {
+          toFind = find (boxCheck.begin(), boxCheck.end(), k+1);
+          if(toFind != boxCheck.end())
+          {
+          }
+          else
+          {
+            countInvalid++;
+          }
+        }
+        boxCheck.clear();
+      }
+    }
+  }
+  if(countInvalid > 0)
+  {
+    cout << "Box E is Invalid" << endl;
+  }
+  else
+  {
+    cout << "Box E is Valid" << endl;
+  }
+}
+void check3x3F(char sudokuArr[][9])
+{
+  vector<int> boxCheck;
+  vector<int>::iterator toFind;
+  int countInvalid = 0;
+
+  for(int i = 3; i < 6; i++)
+  {
+    for(int j = 6; j < 9; j++)
+    {
+      boxCheck.push_back((int) sudokuArr[j][i]);
+      if(j == 8)
+      {
+        for(int k = 0; k < 9; k++)
+        {
+          toFind = find (boxCheck.begin(), boxCheck.end(), k+1);
+          if(toFind != boxCheck.end())
+          {
+          }
+          else
+          {
+            countInvalid++;
+          }
+        }
+        boxCheck.clear();
+      }
+    }
+  }
+  if(countInvalid > 0)
+  {
+    cout << "Box F is Invalid" << endl;
+  }
+  else
+  {
+    cout << "Box F is Valid" << endl;
+  }
+}
+
+void check3x3G(char sudokuArr[][9])
+{
+  vector<int> boxCheck;
+  vector<int>::iterator toFind;
+  int countInvalid = 0;
+
+  for(int i = 6; i < 9; i++)
+  {
+    for(int j = 0; j < 3; j++)
+    {
+      boxCheck.push_back((int) sudokuArr[j][i]);
+      if(j == 8)
+      {
+        for(int k = 0; k < 9; k++)
+        {
+          toFind = find (boxCheck.begin(), boxCheck.end(), k+1);
+          if(toFind != boxCheck.end())
+          {
+          }
+          else
+          {
+            countInvalid++;
+          }
+        }
+        boxCheck.clear();
+      }
+    }
+  }
+  if(countInvalid > 0)
+  {
+    cout << "Box G is Invalid" << endl;
+  }
+  else
+  {
+    cout << "Box G is Valid" << endl;
+  }
+}
+void check3x3H(char sudokuArr[][9])
+{
+  vector<int> boxCheck;
+  vector<int>::iterator toFind;
+  int countInvalid = 0;
+
+  for(int i = 6; i < 9; i++)
+  {
+    for(int j = 3; j < 6; j++)
+    {
+      boxCheck.push_back((int) sudokuArr[j][i]);
+      if(j == 8)
+      {
+        for(int k = 0; k < 9; k++)
+        {
+          toFind = find (boxCheck.begin(), boxCheck.end(), k+1);
+          if(toFind != boxCheck.end())
+          {
+          }
+          else
+          {
+            countInvalid++;
+          }
+        }
+        boxCheck.clear();
+      }
+    }
+  }
+  if(countInvalid > 0)
+  {
+    cout << "Box H is Invalid" << endl;
+  }
+  else
+  {
+    cout << "Box H is Valid" << endl;
+  }
+}
+void check3x3I(char sudokuArr[][9])
+{
+  vector<int> boxCheck;
+  vector<int>::iterator toFind;
+  int countInvalid = 0;
+
+  for(int i = 6; i < 9; i++)
+  {
+    for(int j = 6; j < 9; j++)
+    {
+      boxCheck.push_back((int) sudokuArr[j][i]);
+      if(j == 8)
+      {
+        for(int k = 0; k < 9; k++)
+        {
+          toFind = find (boxCheck.begin(), boxCheck.end(), k+1);
+          if(toFind != boxCheck.end())
+          {
+          }
+          else
+          {
+            countInvalid++;
+          }
+        }
+        boxCheck.clear();
+      }
+    }
+  }
+  if(countInvalid > 0)
+  {
+    cout << "Box I is Invalid" << endl;
+  }
+  else
+  {
+    cout << "Box I is Valid" << endl;
+  }
+}
