@@ -1,0 +1,77 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    int choice;
+    double pi = 3.14159;
+    double area, length, width, height, base, radius;
+
+    cout << "Geometry Calculator" << endl;
+    cout << "1. Calculate the area of a Circle" << endl;
+    cout << "2. Calculate the area of a Rectangle" << endl;
+    cout << "3. Calculate the area of a Triangle" << endl;
+    cout << "4. Quit" << endl;
+  do
+  {
+    cout << "Enter your choice (1-4): " << endl;
+    cin >> choice;
+    switch (choice)
+    {
+      case 1:
+        cout << "What is the radius of the circle?" << endl;
+        cin >> radius;
+
+        if(radius < 0)
+        {
+          cout << "The radius can not be less than zero." << endl;
+        }
+        else
+        {
+          area = pi * pow(radius,2);
+          cout << "The area of the circle is " << area  << " ."<< endl;
+        }
+        break;
+      case 2:
+        cout << "What is the length of the rectangle?" << endl;
+        cin >> length;
+        cout << "What is the width of the rectangle?" << endl;
+        cin >> width;
+
+        if(length < 0 || width < 0)
+        {
+          cout << "Only enter positive values for length and width." << endl;
+        }
+        else
+        {
+          area = length * width;
+          cout << "The area of the rectangle is " << area  << " ."<< endl;
+        }
+        break;
+      case 3:
+        cout << "What is the length of the triangle's base?" << endl;
+        cin >> base;
+        cout << "What is the height of the triangle?" << endl;
+        cin >> height;
+
+        if(base < 0 || height < 0)
+        {
+          cout << "Only enter positive values for base and height." << endl;
+        }
+        else
+        {
+          area = base * height * .5;
+          cout << "The area of the triangle is " << area  << " ."<< endl;
+        }
+        break;
+      case 4:
+        return 0;
+      default:
+        cout << "Illegal Input" << endl;
+        cout << "The valid choices are 1 through 4. Please select one of those." << endl;
+        break;
+    }
+  }while(true);
+}
