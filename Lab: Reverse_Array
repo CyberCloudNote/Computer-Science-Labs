@@ -1,0 +1,56 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int *revArr(const int *arr, int size);
+
+int main()
+{
+	int size;
+	int word;
+	int index = 0;
+  cin >> size;
+
+	if(size < 0 || size > 50)
+	{
+		return 0;   
+	}
+	   
+	int *myArr = new int[size];
+	
+	ifstream myData;
+	myData.open("data.txt");
+	while(myData >> word)
+	{
+		myArr[index] = word;
+		index++;
+	}
+	myData.close();
+
+	
+	int *temp;
+	temp = revArr(myArr, size);
+	
+	for(int i = 0; i < size; i++)
+	{
+        cout << temp[i] << endl;
+    }
+
+    return 0;
+}
+
+int *revArr(const int *arr, int size)
+{
+	int index = size - 1;
+	
+	int *newArr;
+	newArr = new int[size];
+	
+	for(int i = 0; i < size; i++)
+	{
+		newArr[i] = arr[index];
+		index--;
+	}
+	return newArr;
+}
