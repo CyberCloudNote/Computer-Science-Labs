@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+  int numTemp, myTemp, highTemp, lowTemp;
+  double totalTemp;
+  int arr[50];
+  cout << "Please input the number of tempuratures to be read." << endl;
+  cin >> numTemp;
+
+  for(int i = 0; i < numTemp; i++)
+  {
+    cout << "Input Temperature " << i+1 << ": " << endl;
+    cin >> myTemp;
+    arr[i] = myTemp;
+    totalTemp = totalTemp + myTemp;
+  }
+
+  lowTemp = arr[0];
+  highTemp = arr[0];
+  for(int i = 0; i < numTemp; i++)
+  {
+    if(arr[i] > highTemp)
+    {
+      highTemp = arr[i] ;
+    }
+
+    if(arr[i] < lowTemp)
+    {
+      lowTemp = arr[i] ;
+    }
+  }
+  
+  cout << fixed << setprecision(2) << "The average temperature is " << totalTemp/numTemp << endl;
+  cout  << fixed << setprecision(2) <<"The highest Temperature is " << highTemp << endl;
+  cout  << fixed << setprecision(2) <<"The lowest Temperature is " << lowTemp << endl;
+}
